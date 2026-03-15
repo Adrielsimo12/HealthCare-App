@@ -5,7 +5,7 @@ import { useEffect, useState, useRef, useContext } from "react";
 
 function useDemandes () {
     const {state, updateRequest, updateRequestStatus} = useContext(ApplicationContext); 
-    const {demandes: stateDemandes} = state || {demandes : []};     
+    const { requests: stateDemandes } = state || { demandes: [] };     
     const filterRef = useRef<any>(null);
     const [statusOrder, setStatusOrder] = useState(1);
     const [dateOrder, setDateOrder] = useState(1);
@@ -14,10 +14,10 @@ function useDemandes () {
 
 
     // Synchroniser les déclarations locales avec celles du contexte
-    /*useEffect(() => {
-        setDemandes(stateDemandes as []); 
-        setFilteredDemandes(stateDemandes as []);
-    }, []);*/
+    useEffect(() => {
+      setDemandes(stateDemandes as []);
+      setFilteredDemandes(stateDemandes as []);
+    }, [stateDemandes]);
 
     /*const updateStatusWithoutContext = (data: { id: string, status: string }) => {
         const toUpdate = demandes.filter(({id}: Request) => id === data.id)[0];
