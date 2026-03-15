@@ -4,9 +4,9 @@ import React, { useReducer } from 'react'
 import { ApplicationReducer } from './ApplicationReducer';
 
 type StateData = {
-    declarations: Declaration[];
-    demandes?: Request[];
-}
+  declarations: Declaration[];
+  requests: Request[];
+};
 type Props = {
     state: StateData;
     updateDeclaration: (declarations: Declaration[]) => void;
